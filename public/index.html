@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <script>
+        var gData = {
+            "srv_list": [{
+                "name": "greeter.Greeter",
+                "short_name": "Greeter",
+                "options": {
+                    "srvname": "Greeter服务",
+                    "srvurl": ""
+                },
+                "method_list": [{
+                    "name": "SayHello",
+                    "desc": "",
+                    "request_doc": [{
+                        "fname": "msg1",
+                        "is_repeated": false,
+                        "desc": "请求字段reqMsg",
+                        "tv": "hello1",
+                        "isopt": true,
+                        "strict": " length \u003e=10 regexp(^123.*)",
+                        "min": 10,
+                        "max": 0,
+                        "ftype": "string"
+                    }, {
+                        "fname": "required_msg",
+                        "is_repeated": false,
+                        "desc": "必须存在的",
+                        "tv": 2,
+                        "isopt": false,
+                        "strict": " range(1,2,3)",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "int32"
+                    }, {
+                        "fname": "msg3",
+                        "is_repeated": false,
+                        "desc": "请求字段reqMsg",
+                        "tv": "hello3",
+                        "isopt": false,
+                        "strict": " regexp(^hello$|^world$)",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }, {
+                        "fname": "o_map",
+                        "is_repeated": true,
+                        "desc": "map\u003cstring-\u003e*greeter.OtherMsg\u003e(OtherMsg)map 哦",
+                        "tv": null,
+                        "isopt": false,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "message"
+                    }, {
+                        "fname": "-\u003eo_map.other_msg1",
+                        "is_repeated": false,
+                        "desc": "othermsg desc",
+                        "tv": "other-msg",
+                        "isopt": true,
+                        "strict": " length \u003e=10",
+                        "min": 10,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "req_tv": "{\"msg1\":\"hello1\",\"required_msg\":2,\"msg3\":\"hello3\",\"o_map\": {\"string_type\":{\"other_msg1\":\"other-msg\"}}}",
+                    "response_doc": [{
+                        "fname": "ret",
+                        "is_repeated": false,
+                        "desc": "0：成功，其他：失败",
+                        "tv": 0,
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "int32"
+                    }, {
+                        "fname": "msg",
+                        "is_repeated": false,
+                        "desc": "返回消息，如succeed",
+                        "tv": "",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }, {
+                        "fname": "rsp_msg",
+                        "is_repeated": false,
+                        "desc": "应答字段rspMsg",
+                        "tv": "hello2",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "rsp_tv": "{\"ret\":0,\"msg\":\"\",\"rsp_msg\":\"hello2\"}",
+                    "method_doc": {
+                        "srvdesc": "SayHello的接口描述",
+                        "tapd": "",
+                        "logic": "SayHello的逻辑说明",
+                        "uri": "/greeter.Greeter/SayHello"
+                    }
+                }, {
+                    "name": "SayHi",
+                    "desc": "",
+                    "request_doc": [{
+                        "fname": "msg1",
+                        "is_repeated": false,
+                        "desc": "请求字段reqMsg",
+                        "tv": "hello1",
+                        "isopt": true,
+                        "strict": " length \u003e=10 regexp(^123.*)",
+                        "min": 10,
+                        "max": 0,
+                        "ftype": "string"
+                    }, {
+                        "fname": "required_msg",
+                        "is_repeated": false,
+                        "desc": "必须存在的",
+                        "tv": 2,
+                        "isopt": false,
+                        "strict": " range(1,2,3)",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "int32"
+                    }, {
+                        "fname": "msg3",
+                        "is_repeated": false,
+                        "desc": "请求字段reqMsg",
+                        "tv": "hello3",
+                        "isopt": false,
+                        "strict": " regexp(^hello$|^world$)",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }, {
+                        "fname": "o_map",
+                        "is_repeated": true,
+                        "desc": "map\u003cstring-\u003e*greeter.OtherMsg\u003e(OtherMsg)map 哦",
+                        "tv": null,
+                        "isopt": false,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "message"
+                    }, {
+                        "fname": "-\u003eo_map.other_msg1",
+                        "is_repeated": false,
+                        "desc": "othermsg desc",
+                        "tv": "other-msg",
+                        "isopt": true,
+                        "strict": " length \u003e=10",
+                        "min": 10,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "req_tv": "{\"msg1\":\"hello1\",\"required_msg\":2,\"msg3\":\"hello3\",\"o_map\": {\"string_type\":{\"other_msg1\":\"other-msg\"}}}",
+                    "response_doc": [{
+                        "fname": "ret",
+                        "is_repeated": false,
+                        "desc": "0：成功，其他：失败",
+                        "tv": 0,
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "int32"
+                    }, {
+                        "fname": "msg",
+                        "is_repeated": false,
+                        "desc": "返回消息，如succeed",
+                        "tv": "",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }, {
+                        "fname": "rsp_msg",
+                        "is_repeated": false,
+                        "desc": "应答字段rspMsg",
+                        "tv": "hello2",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "rsp_tv": "{\"ret\":0,\"msg\":\"\",\"rsp_msg\":\"hello2\"}",
+                    "method_doc": {
+                        "srvdesc": "SayHi的接口描述",
+                        "tapd": "",
+                        "logic": "SayHi的逻辑说明",
+                        "uri": "/greeter.Greeter/SayHi"
+                    }
+                }, {
+                    "name": "Demo1",
+                    "desc": "",
+                    "request_doc": [{
+                        "fname": "action",
+                        "is_repeated": false,
+                        "desc": "动作：add",
+                        "tv": "add",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "req_tv": "{\"action\":\"add\"}",
+                    "response_doc": [{
+                        "fname": "ret",
+                        "is_repeated": false,
+                        "desc": "0：成功，其他：失败",
+                        "tv": 0,
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "int32"
+                    }, {
+                        "fname": "msg",
+                        "is_repeated": false,
+                        "desc": "返回消息，如succeed",
+                        "tv": "",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "rsp_tv": "{\"ret\":0,\"msg\":\"\"}",
+                    "method_doc": {
+                        "srvdesc": "Demo1",
+                        "tapd": "",
+                        "logic": "",
+                        "uri": "/greeter.Greeter/Demo1"
+                    }
+                }, {
+                    "name": "Demo2",
+                    "desc": "",
+                    "request_doc": [{
+                        "fname": "action",
+                        "is_repeated": false,
+                        "desc": "动作：add",
+                        "tv": "add",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "req_tv": "{\"action\":\"add\"}",
+                    "response_doc": [{
+                        "fname": "ret",
+                        "is_repeated": false,
+                        "desc": "0：成功，其他：失败",
+                        "tv": 0,
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "int32"
+                    }, {
+                        "fname": "msg",
+                        "is_repeated": false,
+                        "desc": "返回消息，如succeed",
+                        "tv": "",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "rsp_tv": "{\"ret\":0,\"msg\":\"\"}",
+                    "method_doc": {
+                        "srvdesc": "Demo2",
+                        "tapd": "",
+                        "logic": "",
+                        "uri": "/greeter.Greeter/Demo2"
+                    }
+                }, {
+                    "name": "Demo3",
+                    "desc": "",
+                    "request_doc": [{
+                        "fname": "action",
+                        "is_repeated": false,
+                        "desc": "动作：add",
+                        "tv": "add",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "req_tv": "{\"action\":\"add\"}",
+                    "response_doc": [{
+                        "fname": "ret",
+                        "is_repeated": false,
+                        "desc": "0：成功，其他：失败",
+                        "tv": 0,
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "int32"
+                    }, {
+                        "fname": "msg",
+                        "is_repeated": false,
+                        "desc": "返回消息，如succeed",
+                        "tv": "",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "rsp_tv": "{\"ret\":0,\"msg\":\"\"}",
+                    "method_doc": {
+                        "srvdesc": "Demo3",
+                        "tapd": "",
+                        "logic": "",
+                        "uri": "/greeter.Greeter/Demo3"
+                    }
+                }]
+            }, {
+                "name": "greeter.Greeter2",
+                "short_name": "Greeter2",
+                "options": {
+                    "srvname": "greeter.Greeter2",
+                    "srvurl": ""
+                },
+                "method_list": [{
+                    "name": "Greeter2Method",
+                    "desc": "",
+                    "request_doc": [{
+                        "fname": "action",
+                        "is_repeated": false,
+                        "desc": "动作：add",
+                        "tv": "add",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "req_tv": "{\"action\":\"add\"}",
+                    "response_doc": [{
+                        "fname": "ret",
+                        "is_repeated": false,
+                        "desc": "0：成功，其他：失败",
+                        "tv": 0,
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "int32"
+                    }, {
+                        "fname": "msg",
+                        "is_repeated": false,
+                        "desc": "返回消息，如succeed",
+                        "tv": "",
+                        "isopt": true,
+                        "strict": "",
+                        "min": 0,
+                        "max": 0,
+                        "ftype": "string"
+                    }],
+                    "rsp_tv": "{\"ret\":0,\"msg\":\"\"}",
+                    "method_doc": {
+                        "srvdesc": "Demo3",
+                        "tapd": "",
+                        "logic": "",
+                        "uri": "/greeter.Greeter2/Greeter2Method"
+                    }
+                }]
+            }]
+        }
+        var gNavMenuData = new Array();
+        var gMethodMap = {}
+        gData.srv_list.forEach((service, index) => {
+            var list = new Array()
+            var methodList = service.method_list
+            methodList.forEach((m, i) => {
+                list[i] = {
+                    "name": m.name,
+                    "key": service.name + "/" + m.name,
+                    "index": "method"  //同一个路由
+                }
+                
+                gMethodMap[service.name + "/" + m.name] = m
+            })
+            gNavMenuData[index] = {
+                "name": service.name,
+                "methods": list
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+</body>
+
+</html>
