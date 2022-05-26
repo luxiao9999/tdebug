@@ -3,5 +3,5 @@
 vue3.0 + element plus
 
 # install
-npm run install 
-npm run serve
+1. npm run install 
+2. npm run serve
