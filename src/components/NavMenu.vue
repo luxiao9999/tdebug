@@ -11,8 +11,8 @@
       <el-sub-menu>
           <template #title><i class="el-icon-lx-home"></i><span>{{item.name}}</span></template>
           <el-menu-item-group>
-          <template v-for="methodItem in item.methods" :key="methodItem.key">
-            <el-menu-item :index="methodItem.index">{{methodItem.name}}</el-menu-item>
+          <template v-for="methodItem in item.methods"  :key="methodItem.key">
+            <el-menu-item :index="methodItem.key">{{methodItem.name}}</el-menu-item>
           </template>
           </el-menu-item-group>
       </el-sub-menu>

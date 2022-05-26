@@ -395,11 +395,11 @@
             methodList.forEach((m, i) => {
                 list[i] = {
                     "name": m.name,
-                    "key": service.name + "/" + m.name,
+                    "key": "/"+service.name + "/" + m.name,
                     "index": "method"  //同一个路由
                 }
                 
-                gMethodMap[service.name + "/" + m.name] = m
+                gMethodMap["/"+service.name + "/" + m.name] = m
             })
             gNavMenuData[index] = {
                 "name": service.name,

@@ -9,14 +9,14 @@ import tools from './components/tools.vue'
 
 
 const routes = [
-    { path: '/method', component: method},
     { path: '/tools', component: tools }
 ]
-/*
-gMethodMap.forEach(function(value,key){
+
+for (var key in gMethodMap) {
     routes.push({path:key, component: method})
-});
-*/
+}
+
+
 // 3. 创建 router 实例，然后传 `routes` 配置
 // 你还可以传别的配置参数, 不过先这么简单着吧。
 const router = createRouter({
